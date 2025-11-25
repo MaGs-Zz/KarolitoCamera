@@ -9,13 +9,14 @@ export class ApiPokeService {
 
   private apiUrl = 'https://pokeapi.co/api/v2/';
 
-  constructor(private https: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  getPokemon(): Observable<any>{
-
-    return this.https.get(this.apiUrl + 'pokemon');
-
-    };
-
+  getPokemon(): Observable<any> {
+    return this.http.get(this.apiUrl + 'pokemon');
   }
-  
+
+  getPokemonById(id: number): Observable<any> {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  }
+
+}

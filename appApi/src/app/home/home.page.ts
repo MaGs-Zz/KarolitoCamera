@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiPokeService } from '../service/api-poke.service'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,11 @@ export class HomePage implements OnInit {
 
   pokemons: any [] = [];
 
-  constructor(private _apiPokeService: ApiPokeService){}
+  constructor(
+  private _apiPokeService: ApiPokeService,
+  private router: Router
+){}
+
 
   ngOnInit() {
 
@@ -31,5 +37,10 @@ export class HomePage implements OnInit {
 
     });
   }
+
+  openDetail(id: number) {
+  this.router.navigate(['/pokemon-detail', id]);
+}
+
 
 }

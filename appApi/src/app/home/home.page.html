@@ -10,14 +10,14 @@
     <ion-row>
       <ion-col size="6" *ngFor="let pokemon of pokemons">
         
-        <ion-card>
-          <ion-card-content class="card-center">
-            <img [src]="pokemon.img" alt="{{pokemon.name}}" />
+        <ion-card (click)="openDetail(pokemon.id)">
+  <ion-card-content class="card-center">
+    <img [src]="pokemon.img" alt="{{pokemon.name}}" />
+    <h2>#{{pokemon.id}}</h2>
+    <h3>{{ pokemon.name }}</h3>
+  </ion-card-content>
+</ion-card>
 
-            <h2>#{{pokemon.id}}</h2>
-            <h3>{{ pokemon.name }}</h3>
-          </ion-card-content>
-        </ion-card>
 
       </ion-col>
     </ion-row>
